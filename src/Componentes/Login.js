@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import RecipeContext from '../context/ContextApp';
 
 function Login() {
+  const {
+    stateEmail,
+    setStateEmail } = useContext(RecipeContext);
+  const { email } = stateEmail;
+  const onChangeInput = ({ target: { value } }) => {
+    setStateEmail({ ...stateEmail, email: value,
+    });
+  };
+
   return (
     <div>
       <form>
         <label htmlFor="email">
           <input
+            value={ email }
             id="email"
             name="email"
             data-testid="email-input"
             type="email"
-            /* onChange={} */
+            onChange={ onChangeInput }
           />
         </label>
         <label htmlFor="password">
@@ -19,7 +30,7 @@ function Login() {
             name="password"
             data-testid="password-input"
             type="password"
-            /* onChange={} */
+            onChange={ onChangeInput }
           />
         </label>
         <button
