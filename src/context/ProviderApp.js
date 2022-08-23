@@ -15,9 +15,7 @@ function ProviderApp({ children }) {
     <RecipesContext.Provider
       value={ valueObj }
     >
-
       { children }
-
     </RecipesContext.Provider>
   );
 }
