@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 // import RecipeContext from '../context/ContextApp';
 
 function Login() {
   const [validate, setValidate] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   useEffect(() => {
     const regex = /\S+@\S+\.\S+/;
@@ -20,12 +22,15 @@ function Login() {
     localStorage.setItem('user', JSON.stringify({ email }));
     localStorage.setItem('mealsToken', 1);
     localStorage.setItem('cocktailsToken', '1');
+    history.push('/foods');
   };
 
   return (
     <div>
       <form>
         <label htmlFor="email">
+          Email
+          {' '}
           <input
             value={ email }
             id="email"
@@ -38,6 +43,8 @@ function Login() {
           />
         </label>
         <label htmlFor="password">
+          Senha
+          {' '}
           <input
             id="password"
             value={ password }
