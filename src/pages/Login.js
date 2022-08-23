@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-// import RecipeContext from '../context/ContextApp';
 
 function Login() {
   const [validate, setValidate] = useState(true);

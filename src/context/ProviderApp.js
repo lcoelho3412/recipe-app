@@ -7,10 +7,12 @@ function ProviderApp({ children }) {
   });
   const [statePassword, setStatePassword] = useState({ password: '',
   });
+
   const valueObj = { stateEmail,
     setStateEmail,
     statePassword,
     setStatePassword };
+
   return (
     <RecipesContext.Provider
       value={ valueObj }
@@ -19,7 +21,9 @@ function ProviderApp({ children }) {
     </RecipesContext.Provider>
   );
 }
+
 ProviderApp.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+  children: PropTypes.node,
+}.isRequired;
+
 export default ProviderApp;
